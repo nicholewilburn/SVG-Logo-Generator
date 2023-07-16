@@ -21,7 +21,7 @@ describe('Input', () => {
   describe('Shape', () => {
     it('should test that a shape is picked', () => {
       const input = "circle";
-      expect(input).toBe('circle' | 'square' | 'triangle');
+      expect(input).toBe("circle");
     });
   });
 });
