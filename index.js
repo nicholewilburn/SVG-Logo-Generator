@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
-const generator = require('./generator.js');
+const fs = require('fs');
+const SvgFile = require('./generator.js');
 
 
 function start() {
@@ -27,9 +28,16 @@ inquirer
     console.log(data);
 
     const { characters, color, shape } = data;
-    console.log(data);
 
-    generator();
+    const svgData = new SvgFile(
+      characters,
+      color,
+      shape
+    );
+
+    fs.writeFile('newLogo.svg', svgData, (err) =>
+  err ? console.error(err) : console.log('Success!')
+);
 
   });
 
