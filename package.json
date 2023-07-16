@@ -1,0 +1,24 @@
+{
+  "name": "svg-logo-generator",
+  "version": "1.0.0",
+  "description": "## Your Task",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicholewilburn/SVG-Logo-Generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^26.5.2",
+    "inquirer": "^8.2.4"
+  },
+  "bugs": {
+    "url": "https://github.com/nicholewilburn/SVG-Logo-Generator/issues"
+  },
+  "homepage": "https://github.com/nicholewilburn/SVG-Logo-Generator#readme"
+}
