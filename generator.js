@@ -5,34 +5,40 @@ class SvgFile {
         this.characters = characters;
         this.color = color;
         this.shape = shape;
-        let radius = 0;
+        this.radius = 0;
 
-      if (characters.length > 3) {
-        throw new Error('Can only be 3 characters or less.');
-      }
-      if (!/[a-z][a-z0-9_]{2,}/i.test(characters)) {
-        throw new Error(`Can only have letters, numbers, and underscore.`);
-      }
-  
-      if ( shape == 'square' ) {
-        shape = "rect";
-        radius = 0;
-    } else if ( shape == `circle` ) {
-        radius = 40;
-    } else if ( shape == `triangle` ) {
-        radius = 0;
-    }
+}
 
-    const svgHeader = `<svg width="100" height="100">`;
+render() {
 
-    const svgMain = `<${shape} cx="300" cy="300" r="${radius}" fill="${color}" />`;
+  if (this.characters.length > 3) {
+    throw new Error('Can only be 3 characters or less.');
+  }
+  if (!/[a-z][a-z0-9_]{2,}/i.test(this.characters)) {
+    throw new Error(`Can only have letters, numbers, and underscore.`);
+  }
 
-    const svgText = `<text fill="#ffffff" font-size="45" font-family="Verdana" x="50" y="86">${characters}</text>`;
+  if ( this.shape == 'square' ) {
+    this.shape = "rect";
+    this.radius = 0;
+} else if ( this.shape == `circle` ) {
+    this.radius = 80;
+} else if ( this.shape == `triangle` ) {
+    this.radius = 0;
+}
 
-    const svgEnd = `</svg>`;
+  const svgHeader = `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">`;
 
-    return `${svgHeader}${svgMain}${svgText}${svgEnd}`;
+  const svgMain = `<${this.shape} cx="150" cy="100" r="${this.radius}" fill="${this.color}" />`;
 
+  const svgText = `<text fill="#ffffff" font-size="60" x="150" y="125" font-family="Verdana" text-anchor="middle" fill="white">${this.characters}</text>`;
+
+  const svgEnd = `</svg>`;
+
+  return `${svgHeader}
+${svgMain}
+${svgText}
+${svgEnd}`;
 }
 }
 

@@ -25,7 +25,6 @@ inquirer
     },
   ])
   .then((data) => {
-    console.log(data);
 
     const { characters, color, shape } = data;
 
@@ -35,7 +34,7 @@ inquirer
       shape
     );
 
-    fs.writeFile('newLogo.svg', svgData, (err) =>
+    fs.writeFile('newLogo.svg', svgData.render(), (err) =>
   err ? console.error(err) : console.log('Success!')
 );
 
